@@ -4,7 +4,7 @@ You will be finding optimal policies for sample MDPs in this assignment.
 
 ## Goal
 
-Implement the algorithms you have learnt to solve MDPs (Policy Iteration - a special case of which is Value Iteration - and Linear Programming) through the content of this part to find the solution to a given MDP.
+Implement the algorithms you have learnt to solve MDPs (Policy Iteration, Value Iteration and Linear Programming) through the content of this part to find the solution to a given MDP.
 
 Follow good programming practices!
 
@@ -18,7 +18,7 @@ You are given two MDPs to test on in the [MDPs](./MDPs) folder. Both are continu
 states <number of states>
 actions <number of actions>
 tran <initial state> <action taken> <final state> <reward> <transition probability>
-...all the other transitions...
+...all the other possible transitions...
 tran <initial state> <action taken> <final state> <reward> <transition probability>
 gamma  <discount rate>
 ```

@@ -20,7 +20,7 @@ Your solution should ideally be in the form of a Jupyter Notebook. Some assignme
 Week  | Reading                                                                                                                 | Assignment
 ------|-------------------------------------------------------------------------------------------------------------------------|-----------
 Week 1|Dynamic Programming (S&B Chapter 4)<br />Introduction to Deep RL (Grokking Chapter 1)                                    | [Link](Week1/)
-Week 2|Monte Carlo Methods (S&B Chapter 5)                                                                                      |
+Week 2|Monte Carlo Methods (S&B Chapter 5)                                                                                      | [Link](Week2/)
 Week 3|Temporal Difference Learning and Q Learning (S&B Chapter 6)<br />Introduction to Value Based Deep RL (Grokking Chapter 8)|
 Week 4|Eligibility Traces (S&B Chapter 7)                                                                                       |
 Week 5|Tabular Methods(S&B Chapter 8)<br />Deep Q Learning Networks (Grokking Chapters 9, 10)                                   |
