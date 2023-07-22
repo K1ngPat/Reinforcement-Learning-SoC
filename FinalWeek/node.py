@@ -14,7 +14,7 @@ class Node:
         self.N = 0
         self.value = 0
 
-    def __eq__(self, node: "Node") -> bool:
+    def isequal(self, node: "Node") -> bool:
 
         return self.state == node.state
 
