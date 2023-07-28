@@ -5,7 +5,7 @@ import config
 
 class Edge:
 
-    def __init__(self, input_node : "Node", action : Move, prob : float = 0):
+    def __init__(self, input_node : "Node", action : Move, prob : float = 1):
         
         self.input_node = input_node
         self.action = action
