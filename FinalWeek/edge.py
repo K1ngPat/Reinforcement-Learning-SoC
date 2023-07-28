@@ -13,7 +13,7 @@ class Edge:
         output_board.push(action)
         self.output_node = Node(output_board.fen())
         self.prob = prob
-
+        self.Nparent = self.input_node.N
         self.N = 0  # Visit count for this edge
         self.value = 0
         self.turn : bool = self.input_node.state.split(" ")[1] == "w"
@@ -24,7 +24,8 @@ class Edge:
     
     
     def UCB(self):
-       return (math.log((1 + self.N + config.C_base)/(config.C_base)) + config.C_init) * self.prob * math.sqrt(self.N) / (1 + self.N) + (self.value/(self.N+1) if self.turn else -self.value/(self.N+1))
+       self.Nparent = self.input_node.N
+       return (math.log((1 + self.Nparent + config.C_base)/(config.C_base)) + config.C_init) * self.prob * math.sqrt(self.Nparent) / (1 + self.N) + (self.value/(self.N+1) if self.turn else -self.value/(self.N+1))
 
     def update_prob(self, new_prob):
         assert new_prob <= 1
