@@ -19,7 +19,7 @@ class Edge:
         self.turn : bool = self.input_node.state.split(" ")[1] == "w"
 
 
-    def isequal(self, edge : "Edge") -> bool:
+    def __eq__(self, edge : "Edge") -> bool:
         return self.input_node == edge.input_node and self.action == edge.action
     
     
