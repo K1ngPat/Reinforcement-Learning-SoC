@@ -22,15 +22,17 @@ class ConvNet(nn.Module):
 
         # residual layer
         self.residual = nn.Sequential(
-            nn.Conv2d(in_channels=self.convolution_filters, out_channels=convolution_filters, kernel_size=3, stride=(1, 1), padding=1),
+            nn.Conv2d(in_channels=self.convolution_filters, out_channels=self.convolution_filters, kernel_size=3, stride=(1, 1), padding=1),
             nn.BatchNorm2d(num_features=self.convolution_filters),
             nn.ReLU(),
-            nn.Conv2d(in_channels=self.convolution_filters, out_channels=convolution_filters, kernel_size=3, stride=(1, 1), padding=1),
+            nn.Conv2d(in_channels=self.convolution_filters, out_channels=self.convolution_filters, kernel_size=3, stride=(1, 1), padding=1),
             nn.BatchNorm2d(self.convolution_filters)
         )
-        self.residual_layers = nn.ModuleList()
-        for _ in range(num_hidden_layers):
-            self.residual_layers.append(self.residual)
+
+        # residual layers
+        self.residual_layers = nn.ModuleList(
+            [self.residual for _ in range(self.num_hidden_layers)]
+        )
 
         # policy head
         self.policy_head = nn.Sequential(
@@ -63,12 +65,12 @@ class ConvNet(nn.Module):
         for residual_layer in self.residual_layers:
             x_res = residual_layer(x)
             x += x_res
-            x = torch.relu(x)
+            x = F.relu(x)
 
         # policy output
-        policy_output = self.policy_head(x)
+        policy_output = self.policy_head(x) # shape: [-1, 73 * 8 * 8]
 
         # value output
-        value_output = self.value_head(x)
+        value_output = self.value_head(x) # shape: [-1, 1]
 
         return policy_output, value_output
