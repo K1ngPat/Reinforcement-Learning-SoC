@@ -2,17 +2,18 @@
 from model import ConvNet
 import torch.optim as optim
 import torch.nn as nn
+import config
 
 # training
-def train(params):
-    input_dim = params['input_dim']
-    output_dim = params['output_dim']
-    num_hidden_layers = params['num_hidden_layers']
-    convolution_filters = params['convolution_filters']
-    learning_rate = params['learning_rate']
-    policy_weight = params['policy_weight']
-    value_weight = params['value_weight']
-    num_epochs = params['epochs']
+def train():
+    input_dim = config.INPUT_DIM
+    output_dim = config.OUTPUT_DIM
+    num_hidden_layers = config.NUM_HIDDEN_LAYERS
+    convolution_filters = config.CONVOLUTION_FILTERS
+    learning_rate = config.LEARNING_RATE
+    policy_weight = config.POLICY_WEIGHT
+    value_weight = config.VALUE_WEIGHT
+    num_epochs = config.EPOCHS
 
     model = ConvNet(input_dim, output_dim, num_hidden_layers, convolution_filters)
 
